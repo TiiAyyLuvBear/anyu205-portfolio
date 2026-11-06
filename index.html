@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Vũ Thế Anh, HCMUS computer science student building AI for Vietnamese speech and text.">
+<meta property="og:title" content="Vũ Thế Anh">
+<meta property="og:description" content="Projects in Vietnamese TTS, speaker verification, and RAG question answering.">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/99866822?v=4">
+<link rel="icon" href="https://avatars.githubusercontent.com/u/99866822?s=64&v=4">
+<style>body{margin:0}img{max-width:100%}</style>
+<title>Vũ Thế Anh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap&subset=vietnamese">
+<style>
+/* Layout: single reading column; hero with a speech waveform, then "now", then project pipelines, then the rest of the repos. */
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --ink: #141a2e;
+  --muted: #5a6280;
+  --line: #dfe2ee;
+  --accent: #2f45d8;
+  --accent-soft: #e6e9fd;
+  --warm: #d9822b;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1220; --surface: #161b2d; --ink: #e8ebf7; --muted: #9aa2c2;
+    --line: #283050; --accent: #8c9bff; --accent-soft: #1f2650; --warm: #f0a35a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1220; --surface: #161b2d; --ink: #e8ebf7; --muted: #9aa2c2;
+  --line: #283050; --accent: #8c9bff; --accent-soft: #1f2650; --warm: #f0a35a;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 920px; margin: 0 auto; padding-block: 48px 64px; display: grid; gap: 72px; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+.label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+/* Hero */
+.hero { display: grid; gap: 20px; }
+.hero-top { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.mono-badge { object-fit: cover;
+  width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--accent); color: var(--bg); font-family: var(--display); font-weight: 800; font-size: 20px;
+}
+.handle { font-family: var(--mono); font-size: 14px; color: var(--muted); }
+.hero h1 { font-size: clamp(44px, 9vw, 88px); font-weight: 800; line-height: 0.98; }
+.hero h1 .sub { display: block; font-size: 0.32em; font-weight: 500; color: var(--muted); letter-spacing: 0; margin-top: 14px; line-height: 1.3; }
+.wave { width: 100%; height: 72px; display: block; }
+.lede { font-size: 19px; max-width: 62ch; margin: 0; }
+.lede strong { font-weight: 600; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; color: var(--muted); padding: 0; margin: 0; list-style: none; }
+.facts li { display: flex; gap: 6px; align-items: baseline; }
+.facts .k { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px;
+  font-weight: 500; font-size: 15px; text-decoration: none; border: 1px solid var(--line); color: var(--ink); background: var(--surface);
+}
+.btn.primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.btn:hover { border-color: var(--accent); }
+
+/* Sections */
+section { display: grid; gap: 24px; }
+.sec-head { display: grid; gap: 6px; }
+.sec-head h2 { font-size: clamp(28px, 4.5vw, 38px); font-weight: 700; }
+
+/* Now */
+.now { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.now-item { border-top: 2px solid var(--ink); padding-top: 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.now-item h3 { font-size: 19px; font-weight: 700; }
+.now-item p { margin: 0; color: var(--muted); font-size: 15px; }
+.now-item .when { font-family: var(--mono); font-size: 12px; color: var(--warm); }
+
+/* Projects */
+.projects { display: grid; gap: 20px; }
+.proj {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  padding: 24px; display: grid; gap: 16px; min-width: 0;
+}
+.proj-head { display: flex; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; align-items: baseline; }
+.proj h3 { font-size: 26px; font-weight: 700; }
+.proj .tag { font-family: var(--mono); font-size: 12px; color: var(--muted); display: flex; gap: 14px; flex-wrap: wrap; }
+.proj .tag .lang::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--warm); margin-right: 6px; }
+.proj p { margin: 0; max-width: 68ch; }
+.pipe-wrap { overflow-x: auto; padding-bottom: 4px; }
+.pipe { display: flex; align-items: center; gap: 0; list-style: none; margin: 0; padding: 0; width: max-content; }
+.pipe li { font-family: var(--mono); font-size: 12.5px; padding: 6px 11px; border-radius: 6px; background: var(--accent-soft); color: var(--ink); white-space: nowrap; }
+.pipe li + li { margin-left: 26px; position: relative; }
+.pipe li + li::before { content: ""; position: absolute; left: -20px; top: 50%; width: 14px; height: 1.5px; background: var(--muted); }
+.pipe li + li::after { content: ""; position: absolute; left: -9px; top: calc(50% - 3.5px); border: 4px solid transparent; border-left: 5px solid var(--muted); border-right: 0; }
+.stack { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; list-style: none; }
+.stack li { font-size: 13px; padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); }
+.proj-links { display: flex; gap: 10px; flex-wrap: wrap; }
+.demo-note { font-family: var(--mono); font-size: 12.5px; color: var(--muted); background: var(--bg); border: 1px dashed var(--line); padding: 10px 12px; border-radius: 8px; overflow-x: auto; white-space: pre; }
+
+/* More repos */
+.more { list-style: none; margin: 0; padding: 0; display: grid; }
+.more li { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.more li:first-child { border-top: 1px solid var(--line); }
+.more a { font-weight: 600; text-decoration: none; word-break: break-word; }
+.more a:hover { text-decoration: underline; }
+.more .d { grid-column: 1 / -1; color: var(--muted); font-size: 14.5px; margin: 0; }
+.more .meta { font-family: var(--mono); font-size: 12px; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* Contact */
+.contact { display: grid; gap: 14px; }
+.contact p { margin: 0; max-width: 60ch; }
+footer { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+@media (max-width: 520px) {
+  .proj { padding: 18px; }
+  .more li { grid-template-columns: 1fr; }
+  .lede { font-size: 17px; }
+}
+@media (prefers-reduced-motion: reduce) { .wave rect { transition: none !important; } }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-top">
+      <img class="mono-badge" src="https://avatars.githubusercontent.com/u/99866822?v=4" alt="Vũ Thế Anh" width="52" height="52">
+      <span class="handle">@TiiAyyLuvBear</span>
+    </div>
+    <h1>Vũ Thế Anh<span class="sub">Computer science student at VNUHCM, University of Science (HCMUS), class of 2023</span></h1>
+    <svg class="wave" id="wave" viewBox="0 0 920 72" preserveAspectRatio="none" role="img" aria-label="Decorative speech waveform"></svg>
+    <p class="lede">I build <strong>AI systems for Vietnamese speech and text</strong>: audiobook generation with Vietnamese TTS, a voice assistant that verifies who is speaking, and retrieval-augmented question answering over Vietnamese news. I'm working toward a career in IT, with a focus on applied NLP and speech.</p>
+    <ul class="facts">
+      <li><span class="k">Based in</span> Bình Thạnh, Ho Chi Minh City</li>
+      <li><span class="k">School</span> HCMUS · K23</li>
+      <li><span class="k">Works in</span> Python · JavaScript · C++</li>
+    </ul>
+    <div class="links">
+      <a class="btn primary" href="https://github.com/TiiAyyLuvBear" target="_blank" rel="noopener">GitHub profile</a>
+      <a class="btn" href="https://www.linkedin.com/in/theanhvu2005" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="#projects">See projects</a>
+    </div>
+  </header>
+
+  <section aria-labelledby="now-h">
+    <div class="sec-head">
+      <span class="label">Current work</span>
+      <h2 id="now-h">What I'm working on now</h2>
+    </div>
+    <div class="now">
+      <div class="now-item">
+        <span class="when">Since Jun 2026</span>
+        <h3>RAG on Vietnamese news</h3>
+        <p>A Text Mining course project comparing BM25, dense and hybrid retrieval with reranking, and measuring how retrieval quality changes the answers an LLM gives.</p>
+      </div>
+      <div class="now-item">
+        <span class="when">Sep 2026</span>
+        <h3>Generative AI coursework</h3>
+        <p>Notebook experiments with generative models, kept in a public repo as I go.</p>
+      </div>
+      <div class="now-item">
+        <span class="when">Oct 2026</span>
+        <h3>Local LaTeX in Docker</h3>
+        <p>A small MIT-licensed setup for compiling LaTeX reports locally inside a container, so every machine builds the same PDF.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" aria-labelledby="proj-h">
+    <div class="sec-head">
+      <span class="label">Featured projects</span>
+      <h2 id="proj-h">Selected work, with how each one runs</h2>
+    </div>
+    <div class="projects">
+
+      <article class="proj">
+        <div class="proj-head">
+          <h3>LAMAudiobook</h3>
+          <div class="tag"><span class="lang">Python</span><span>★ 1 · 72 commits</span></div>
+        </div>
+        <p>Turns an ebook into a narrated audiobook. Upload an EPUB or TXT file and a multi-agent pipeline parses it into chapters, cleans the text, detects the mood of each passage, picks a matching voice, and synthesizes speech. Output is MP3/WAV audio or an EPUB3 book with the audio built in. Voices can be cloned from a short uploaded sample.</p>
+        <div class="pipe-wrap"><ol class="pipe" aria-label="Processing pipeline">
+          <li>Upload book</li><li>Parser</li><li>Text cleaner</li><li>Mood detection</li><li>Voice selection</li><li>TTS</li><li>Quality check</li><li>MP3 / EPUB3</li>
+        </ol></div>
+        <ul class="stack"><li>FastAPI</li><li>Streamlit</li><li>SQLite job queue</li><li>VieNeu-TTS 0.3B</li><li>XTTSv2</li></ul>
+        <div class="demo-note">uvicorn src.backend.app:app --port 8000
+streamlit run src/frontend/streamlit_app.py</div>
+        <div class="proj-links"><a class="btn" href="https://github.com/TiiAyyLuvBear/LAMAudiobook" target="_blank" rel="noopener">View code</a></div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-head">
+          <h3>VoiceStudy Assistant</h3>
+          <div class="tag"><span class="lang">Jupyter · Python</span><span>41 commits</span></div>
+        </div>
+        <p>A Vietnamese voice assistant for schedules and notes. Every request first identifies and verifies the speaker from their voice; only then is the audio transcribed and acted on. Private notes need a second check: a spoken secret phrase that matches a salted hash stored at enrollment.</p>
+        <div class="pipe-wrap"><ol class="pipe" aria-label="Request pipeline">
+          <li>Voice command</li><li>Speaker ID (ECAPA-TDNN)</li><li>Verification</li><li>PhoWhisper ASR</li><li>Intent (NLU)</li><li>Action + TTS reply</li>
+        </ol></div>
+        <ul class="stack"><li>PhoWhisper-small</li><li>ECAPA-TDNN embeddings</li><li>FastAPI</li><li>React + Vite</li><li>SQLite</li></ul>
+        <div class="proj-links"><a class="btn" href="https://github.com/TiiAyyLuvBear/VoiceStudy-Assistant" target="_blank" rel="noopener">View code</a></div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-head">
+          <h3>Vietnamese News QA with RAG</h3>
+          <div class="tag"><span class="lang">Python</span><span>★ 1 · course project</span></div>
+        </div>
+        <p>A question-answering system over Vietnamese online news. Answers come with their source articles, and the system is designed to say when the corpus doesn't hold enough evidence instead of guessing. The study compares retrieval methods with Recall@k, MRR and nDCG.</p>
+        <div class="pipe-wrap"><ol class="pipe" aria-label="RAG pipeline">
+          <li>Question</li><li>BM25 + dense (bge-m3)</li><li>Hybrid fusion</li><li>Rerank</li><li>Top-5 context</li><li>LLM answer + sources</li>
+        </ol></div>
+        <ul class="stack"><li>rank_bm25</li><li>BAAI/bge-m3</li><li>Qdrant</li><li>bge-reranker</li><li>Qwen2.5 / API LLMs</li></ul>
+        <div class="proj-links"><a class="btn" href="https://github.com/TiiAyyLuvBear/Text-Mining---RAG-on-News" target="_blank" rel="noopener">View code</a></div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-head">
+          <h3>IoT Humidity &amp; Temperature Tracking</h3>
+          <div class="tag"><span class="lang">JavaScript · ESP32</span><span>91 commits</span></div>
+        </div>
+        <p>An ESP32 sensor node streams humidity and temperature readings to a web dashboard, with push and email notifications when readings need attention. The dashboard is live on GitHub Pages.</p>
+        <div class="pipe-wrap"><ol class="pipe" aria-label="Data flow">
+          <li>ESP32 sensor</li><li>Cloud data</li><li>Web dashboard</li><li>Push / email alert</li>
+        </ol></div>
+        <ul class="stack"><li>ESP32</li><li>JavaScript</li><li>Express</li><li>Nodemailer</li></ul>
+        <div class="proj-links">
+          <a class="btn primary" href="https://tiiayyluvbear.github.io/IOT-Humidity-and-Temperature-Tracking/" target="_blank" rel="noopener">Open live demo</a>
+          <a class="btn" href="https://github.com/TiiAyyLuvBear/IOT-Humidity-and-Temperature-Tracking" target="_blank" rel="noopener">View code</a>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-head">
+          <h3>4Money</h3>
+          <div class="tag"><span class="lang">JavaScript</span><span>104 commits · team project</span></div>
+        </div>
+        <p>A personal finance app in the style of Money Lover, built as the final project for Introduction to Software Engineering. Users track spending against budgets and savings goals through a JWT-secured REST API, with a Postman collection for testing.</p>
+        <div class="pipe-wrap"><ol class="pipe" aria-label="Architecture">
+          <li>React + Tailwind</li><li>Express REST API</li><li>JWT auth</li><li>MongoDB</li>
+        </ol></div>
+        <ul class="stack"><li>React</li><li>Vite</li><li>Tailwind</li><li>Express</li><li>Mongoose</li></ul>
+        <div class="proj-links"><a class="btn" href="https://github.com/TiiAyyLuvBear/Introduction-to-Software-Engineering" target="_blank" rel="noopener">View code</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="more-h">
+    <div class="sec-head">
+      <span class="label">More repositories</span>
+      <h2 id="more-h">Labs and smaller builds</h2>
+    </div>
+    <ul class="more">
+      <li><a href="https://github.com/TiiAyyLuvBear/Lab2-Finetune-Unsloth-Gemma-2-to-Intent-Classification-Task" target="_blank" rel="noopener">Fine-tuning Gemma 2 for intent classification</a><span class="meta">Python · May 2026</span><p class="d">Fine-tunes Gemma 2 with Unsloth to classify banking customer intents.</p></li>
+      <li><a href="https://github.com/TiiAyyLuvBear/semeval" target="_blank" rel="noopener">semeval</a><span class="meta">Python · Apr 2026</span><p class="d">Experiments for a SemEval shared task.</p></li>
+      <li><a href="https://github.com/TiiAyyLuvBear/sentiment-dvc-code" target="_blank" rel="noopener">sentiment-dvc-code</a><span class="meta">Mar 2026</span><p class="d">A sentiment analysis pipeline versioned with DVC.</p></li>
+      <li><a href="https://github.com/TiiAyyLuvBear/Diffie-Hellman" target="_blank" rel="noopener">Diffie-Hellman</a><span class="meta">C++ · Dec 2025</span><p class="d">An implementation of the Diffie-Hellman key exchange.</p></li>
+      <li><a href="https://github.com/TiiAyyLuvBear/KTPM" target="_blank" rel="noopener">KTPM</a><span class="meta">JavaScript · Oct 2025</span><p class="d">Software engineering exercise, published on <a href="https://tiiayyluvbear.github.io/KTPM/" target="_blank" rel="noopener">GitHub Pages</a>.</p></li>
+    </ul>
+  </section>
+
+  <section class="contact" aria-labelledby="contact-h">
+    <div class="sec-head">
+      <span class="label">Contact</span>
+      <h2 id="contact-h">Let's talk</h2>
+    </div>
+    <p>I'm open to internships and collaborations in NLP, speech, and applied ML. The quickest way to reach me is LinkedIn.</p>
+    <div class="links">
+      <a class="btn primary" href="https://www.linkedin.com/in/theanhvu2005" target="_blank" rel="noopener">Message on LinkedIn</a>
+      <a class="btn" href="https://github.com/TiiAyyLuvBear" target="_blank" rel="noopener">Follow on GitHub</a>
+    </div>
+  </section>
+
+  <footer>Vũ Thế Anh · Ho Chi Minh City · Updated Nov 2026</footer>
+</div>
+
+<script>
+(function () {
+  var svg = document.getElementById('wave');
+  if (!svg) return;
+  var ns = 'http://www.w3.org/2000/svg';
+  var n = 115, w = 920 / n;
+  // Syllable-like envelope: bursts of energy separated by short pauses.
+  var bars = [];
+  for (var i = 0; i < n; i++) {
+    var t = i / n;
+    var env = Math.abs(Math.sin(t * Math.PI * 7.3)) * (0.55 + 0.45 * Math.sin(t * Math.PI));
+    var h = Math.max(3, (env * 0.85 + 0.15 * ((i * 37) % 11) / 11) * 66);
+    var r = document.createElementNS(ns, 'rect');
+    r.setAttribute('x', (i * w + w * 0.2).toFixed(2));
+    r.setAttribute('width', (w * 0.6).toFixed(2));
+    r.setAttribute('y', ((72 - h) / 2).toFixed(2));
+    r.setAttribute('height', h.toFixed(2));
+    r.setAttribute('rx', '1.5');
+    r.style.fill = i % 9 === 4 ? 'var(--warm)' : 'var(--accent)';
+    r.style.opacity = (0.35 + env * 0.65).toFixed(2);
+    svg.appendChild(r);
+    bars.push(r);
+  }
+})();
+</script>
+</body>
+</html>
