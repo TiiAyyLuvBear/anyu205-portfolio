@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240">
+  <rect width="320" height="240" fill="#171936"/>
+  <rect x="13" y="13" width="294" height="214" rx="12" fill="none" stroke="#454669"/>
+  <path d="M13 54h294" stroke="#454669"/>
+  <circle cx="32" cy="34" r="4" fill="#f7a7c4"/>
+  <text x="45" y="38" font-family="monospace" font-size="12" fill="#e7e6f8">Personal finance</text>
+  <path d="M55 194h209 M75 194v-49h33v49m19 0v-78h33v78m19 0v-103h33v103m19 0v-67h33v67" fill="none" stroke="#f7a7c4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

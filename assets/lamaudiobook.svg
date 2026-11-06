@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240">
+  <rect width="320" height="240" fill="#171936"/>
+  <rect x="13" y="13" width="294" height="214" rx="12" fill="none" stroke="#454669"/>
+  <path d="M13 54h294" stroke="#454669"/>
+  <circle cx="32" cy="34" r="4" fill="#a99dff"/>
+  <text x="45" y="38" font-family="monospace" font-size="12" fill="#e7e6f8">Speech synthesis</text>
+  <path d="M30 131h24l9-23 10 51 14-87 13 109 14-69 13 28h30l13-37 12 53 13-67 11 84 12-52h39" fill="none" stroke="#a99dff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

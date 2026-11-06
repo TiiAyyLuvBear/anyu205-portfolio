@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Answers grounded in Vietnamese news">
+<meta property="og:title" content="Vietnamese News QA with RAG | Vũ Thế Anh">
+<meta property="og:description" content="Answers grounded in Vietnamese news">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/99866822?v=4">
+<link rel="icon" href="https://avatars.githubusercontent.com/u/99866822?s=64&v=4">
+
+<title>Vietnamese News QA with RAG | Vũ Thế Anh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap&subset=vietnamese">
+<link rel="stylesheet" href="../assets/site.css">
+
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href=".././">anyu<span>205</span></a>
+  <nav aria-label="Main navigation"><a href=".././">Home</a> <a href="../projects.html" aria-current="location">Projects</a> <a href="../about.html">About</a></nav>
+</header>
+<main id="main" class="wrap">
+<header class="page-intro">
+  <a class="back" href="../projects.html">← All projects</a>
+  <span class="label">Information retrieval</span>
+  <h1>Vietnamese News QA with RAG</h1>
+  <p class="lede">Answers grounded in Vietnamese news</p>
+</header>
+<section class="project-demos" aria-labelledby="demo-title">
+  <h2 id="demo-title">Project demos</h2>
+  <div class="demo-grid">
+    <figure>
+      <img class="demo-image" src="../assets/news-rag.svg" width="320" height="240" alt="Answers grounded in Vietnamese news, illustrated">
+      <figcaption>Demo image · Illustration</figcaption>
+    </figure>
+    <details class="video-demo">
+      <summary>Video demo</summary>
+      <p>Video coming soon</p>
+    </details>
+  </div>
+</section>
+<article class="proj">
+  <h2>How it works</h2>
+  <div class="tag"><span class="lang">Python</span><span>★ 1 · course project</span></div>
+        <p>A question-answering system over Vietnamese online news. Answers come with their source articles, and the system is designed to say when the corpus doesn't hold enough evidence instead of guessing. The study compares retrieval methods with Recall@k, MRR and nDCG.</p>
+        <div class="pipe-wrap"><ol class="pipe" aria-label="RAG pipeline">
+          <li>Question</li><li>BM25 + dense (bge-m3)</li><li>Hybrid fusion</li><li>Rerank</li><li>Top-5 context</li><li>LLM answer + sources</li>
+        </ol></div>
+        <ul class="stack"><li>rank_bm25</li><li>BAAI/bge-m3</li><li>Qdrant</li><li>bge-reranker</li><li>Qwen2.5 / API LLMs</li></ul>
+        <div class="proj-links"><a class="btn" href="https://github.com/TiiAyyLuvBear/Text-Mining---RAG-on-News" target="_blank" rel="noopener">View code</a></div>
+      </article>
+</main>
+<footer class="site-footer">Vũ Thế Anh · Ho Chi Minh City</footer>
+</body>
+</html>

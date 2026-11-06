@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240">
+  <rect width="320" height="240" fill="#171936"/>
+  <rect x="13" y="13" width="294" height="214" rx="12" fill="none" stroke="#454669"/>
+  <path d="M13 54h294" stroke="#454669"/>
+  <circle cx="32" cy="34" r="4" fill="#81e7e0"/>
+  <text x="45" y="38" font-family="monospace" font-size="12" fill="#e7e6f8">Voice assistant</text>
+  <path d="M120 145a36 36 0 0 0 72 0m-36 36v23m-23 0h46 M140 140v-38a16 16 0 0 1 32 0v38a16 16 0 0 1-32 0z M65 130h27m-16-14v28m145-14h27m-13-14v28" fill="none" stroke="#81e7e0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Speaker verification for voice commands">
+<meta property="og:title" content="VoiceStudy Assistant | Vũ Thế Anh">
+<meta property="og:description" content="Speaker verification for voice commands">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/99866822?v=4">
+<link rel="icon" href="https://avatars.githubusercontent.com/u/99866822?s=64&v=4">
+
+<title>VoiceStudy Assistant | Vũ Thế Anh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap&subset=vietnamese">
+<link rel="stylesheet" href="../assets/site.css">
+
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href=".././">anyu<span>205</span></a>
+  <nav aria-label="Main navigation"><a href=".././">Home</a> <a href="../projects.html" aria-current="location">Projects</a> <a href="../about.html">About</a></nav>
+</header>
+<main id="main" class="wrap">
+<header class="page-intro">
+  <a class="back" href="../projects.html">← All projects</a>
+  <span class="label">Voice assistant</span>
+  <h1>VoiceStudy Assistant</h1>
+  <p class="lede">Speaker verification for voice commands</p>
+</header>
+<section class="project-demos" aria-labelledby="demo-title">
+  <h2 id="demo-title">Project demos</h2>
+  <div class="demo-grid">
+    <figure>
+      <img class="demo-image" src="../assets/voicestudy.svg" width="320" height="240" alt="Speaker verification for voice commands, illustrated">
+      <figcaption>Demo image · Illustration</figcaption>
+    </figure>
+    <details class="video-demo">
+      <summary>Video demo</summary>
+      <p>Video coming soon</p>
+    </details>
+  </div>
+</section>
+<article class="proj">
+  <h2>How it works</h2>
+  <div class="tag"><span class="lang">Jupyter · Python</span><span>41 commits</span></div>
+        <p>A Vietnamese voice assistant for schedules and notes. Every request first identifies and verifies the speaker from their voice; only then is the audio transcribed and acted on. Private notes need a second check: a spoken secret phrase that matches a salted hash stored at enrollment.</p>
+        <div class="pipe-wrap"><ol class="pipe" aria-label="Request pipeline">
+          <li>Voice command</li><li>Speaker ID (ECAPA-TDNN)</li><li>Verification</li><li>PhoWhisper ASR</li><li>Intent (NLU)</li><li>Action + TTS reply</li>
+        </ol></div>
+        <ul class="stack"><li>PhoWhisper-small</li><li>ECAPA-TDNN embeddings</li><li>FastAPI</li><li>React + Vite</li><li>SQLite</li></ul>
+        <div class="proj-links"><a class="btn" href="https://github.com/TiiAyyLuvBear/VoiceStudy-Assistant" target="_blank" rel="noopener">View code</a></div>
+      </article>
+</main>
+<footer class="site-footer">Vũ Thế Anh · Ho Chi Minh City</footer>
+</body>
+</html>
