@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240">
+  <rect width="320" height="240" fill="#171936"/>
+  <rect x="13" y="13" width="294" height="214" rx="12" fill="none" stroke="#454669"/>
+  <path d="M13 54h294" stroke="#454669"/>
+  <circle cx="32" cy="34" r="4" fill="#83c9ff"/>
+  <text x="45" y="38" font-family="monospace" font-size="12" fill="#e7e6f8">Internet of Things</text>
+  <path d="M55 89v105h209 M65 161l28-16 28 12 27-48 24 17 32-36 23 25 30-20 M65 179l28-9 28 8 27-13 24 7 32-16 23 10 30-12" fill="none" stroke="#83c9ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
