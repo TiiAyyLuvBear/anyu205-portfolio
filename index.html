@@ -1,69 +1,20 @@
 <!doctype html>
-<html lang="en">
-<head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="HCMUS computer science student building AI for Vietnamese speech and text.">
-<meta property="og:title" content="Vũ Thế Anh | Portfolio">
-<meta property="og:description" content="HCMUS computer science student building AI for Vietnamese speech and text.">
-<meta property="og:image" content="https://avatars.githubusercontent.com/u/99866822?v=4">
-<link rel="icon" href="https://avatars.githubusercontent.com/u/99866822?s=64&v=4">
-
-<title>Vũ Thế Anh | Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap&subset=vietnamese">
-<link rel="stylesheet" href="assets/site.css">
-<script src="assets/wave.js" defer></script>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Vũ Thế Anh (anyu205) — HCMUS Computer Science Student building AI systems for Vietnamese speech, NLP, and RAG." />
+  <meta property="og:title" content="Vũ Thế Anh | AI & Software Engineering Portfolio" />
+  <meta property="og:description" content="HCMUS computer science student building AI for Vietnamese speech and text. Explore featured projects, ongoing research, and interactive CV." />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/99866822?v=4" />
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/99866822?s=64&v=4" />
+  <title>Vũ Thế Anh (anyu205) | AI & NLP Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap&subset=vietnamese" />
 </head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <a class="brand" href="./">anyu<span>205</span></a>
-  <nav aria-label="Main navigation"><a href="./" aria-current="page">Home</a> <a href="projects.html">Projects</a> <a href="about.html">About</a></nav>
-</header>
-<main id="main" class="wrap">
-<header class="hero">
-    <div class="hero-top">
-      <img class="mono-badge" src="https://avatars.githubusercontent.com/u/99866822?v=4" alt="Vũ Thế Anh" width="52" height="52">
-      <span class="handle">@TiiAyyLuvBear</span>
-    </div>
-    <h1>Vũ Thế Anh<span class="sub">Computer science student at VNUHCM, University of Science (HCMUS), class of 2023</span></h1>
-    <svg class="wave" id="wave" viewBox="0 0 920 72" preserveAspectRatio="none" role="img" aria-label="Decorative speech waveform"></svg>
-    <p class="lede">I build <strong>AI systems for Vietnamese speech and text</strong>: audiobook generation with Vietnamese TTS, a voice assistant that verifies who is speaking, and retrieval-augmented question answering over Vietnamese news. I'm working toward a career in IT, with a focus on applied NLP and speech.</p>
-    <ul class="facts">
-      <li><span class="k">Based in</span> Bình Thạnh, Ho Chi Minh City</li>
-      <li><span class="k">School</span> HCMUS · K23</li>
-      <li><span class="k">Works in</span> Python · JavaScript · C++</li>
-    </ul>
-    <div class="links">
-      <a class="btn primary" href="https://github.com/TiiAyyLuvBear" target="_blank" rel="noopener">GitHub profile</a>
-      <a class="btn" href="https://www.linkedin.com/in/theanhvu2005" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" id="projects" href="projects.html">Explore projects →</a>
-    </div>
-  </header>
-<section aria-labelledby="now-h">
-    <div class="sec-head">
-      <span class="label">Current work</span>
-      <h2 id="now-h">What I'm working on now</h2>
-    </div>
-    <div class="now">
-      <div class="now-item">
-        <span class="when">Since Jun 2026</span>
-        <h3>RAG on Vietnamese news</h3>
-        <p>A Text Mining course project comparing BM25, dense and hybrid retrieval with reranking, and measuring how retrieval quality changes the answers an LLM gives.</p>
-      </div>
-      <div class="now-item">
-        <span class="when">Sep 2026</span>
-        <h3>Generative AI coursework</h3>
-        <p>Notebook experiments with generative models, kept in a public repo as I go.</p>
-      </div>
-      <div class="now-item">
-        <span class="when">Oct 2026</span>
-        <h3>Local LaTeX in Docker</h3>
-        <p>A small MIT-licensed setup for compiling LaTeX reports locally inside a container, so every machine builds the same PDF.</p>
-      </div>
-    </div>
-  </section>
-</main>
-<footer class="site-footer">Vũ Thế Anh · Ho Chi Minh City</footer>
+<body class="bg-slate-50 text-slate-900 dark:bg-[#090d1a] dark:text-slate-100 antialiased selection:bg-indigo-500 selection:text-white transition-colors duration-500 overflow-x-hidden">
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
